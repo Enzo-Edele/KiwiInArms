@@ -1,18 +1,89 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    #region Declaration
+
+    [SerializeField] GameObject mainMenu;
+    [SerializeField] GameObject pauseMenu;
+
+    [SerializeField] GameObject optionMenu;
+
+    GameObject previousMenu;
+
+    #endregion
+    public static UIManager Instance { get; private set; }
+    void Awake()
     {
-        
+        Instance = this;
+        ActivateMainMenu();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKey(KeyCode.P))
+        {
+            ActivatePauseMenu();
+        }
+    }
+
+    #region Menus
+    void ActivateMainMenu()
+    {
+        mainMenu.SetActive(true);
+    }
+    void DeactivateMainMenu()
+    {
+        mainMenu.SetActive(false);
+    }
+    void ActivatePauseMenu()
+    {
+        pauseMenu.SetActive(true);
+    }
+    void DeactivatePauseMenu()
+    {
+        pauseMenu.SetActive(false);
+    }
+    void ActivateOptionMenu()
+    {
+        optionMenu.SetActive(true);
+    }
+    void DeactivateOptionMenu()
+    {
+        optionMenu.SetActive(false);
+    }
+    #endregion
+
+    public void ButtonActivateMenu(GameObject menu)
+    {
+        menu.SetActive(true);
+        //set previous menu
+    }
+    public void ButtonDectivateMenu(GameObject menu)
+    {
+        menu.SetActive(false);
+        //set previous menu
+    }
+
+    public void ButtonChangeSceneString(string Scene)
+    {
+        SceneManager.LoadScene(Scene);
+    }
+    public void ButtonChangeSceneInt(int index)
+    {
+        SceneManager.LoadScene(index);
+    }
+    public void ButtonChangeSceneNext()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void ButtonQuit()
+    {
+        Application.Quit();
     }
 }
