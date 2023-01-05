@@ -11,12 +11,17 @@ public class BossBehaviour : MonoBehaviour
     private Animator animator;
     private Rigidbody2D rb;
     private bool isDead = false;
+    private bool phase2 = false;
 
     public bool isFlipped = false;
     [SerializeField] private GameObject projectile;
     [SerializeField] private Transform tspawnPoint;
 
     [SerializeField] private ParticleSystem ScreamBurst;
+    [SerializeField] private ParticleSystem EnragedScreamBurst;
+
+    [SerializeField] private BoxCollider2D hitBox;
+    [SerializeField] private BoxCollider2D hurtBox;
 
 
     private GameObject player = null;
@@ -38,9 +43,10 @@ public class BossBehaviour : MonoBehaviour
 
         
 
-        if(health <= 350)
+        if(health <= 350 && !phase2)
         {
-            animator.SetBool("Phase2",true);
+            animator.SetTrigger("Phase2");
+            phase2 = true;
         }
 
         if(Input.GetKeyDown(KeyCode.R))
@@ -70,7 +76,7 @@ public class BossBehaviour : MonoBehaviour
     void UpdateUIHeatlh(float Health)
     {
         Debug.Log(Health);
-        UIManager.Instance.UpdateHealth(maxHealth, Health);
+        //UIManager.Instance.UpdateHealth(maxHealth, Health);
     }
 
     public void TakeDamage(int damage)
@@ -130,13 +136,27 @@ public class BossBehaviour : MonoBehaviour
         }
     }
 
-    public void ActivateBurst()
+    public void ActivateBurst(int enraged)
     {
-        ScreamBurst.Play();
+        if(enraged == 0)
+            ScreamBurst.Play();
+        else
+            EnragedScreamBurst.Play();
+
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
+        if (hitBox.IsTouching(other))
+        {
+            if (other.gameObject.layer == 10)
+            {
+                Debug.Log("OUIOUI");
+                PlayerController player = other.gameObject.GetComponent<PlayerController>();
+
+                player.ChangeHealth(10);
+            }
+        }
         
     }
 }

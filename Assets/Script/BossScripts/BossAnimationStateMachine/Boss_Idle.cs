@@ -40,7 +40,7 @@ public class Boss_Idle : StateMachineBehaviour
         if(handlingTimer <= 0)
         {
             handlingTimer = timer;
-            int randomAttackIndex = Random.Range(0, 4);
+            int randomAttackIndex = 3;
             TriggerAttack(randomAttackIndex, animator);
             //RandomAttack();
         }
