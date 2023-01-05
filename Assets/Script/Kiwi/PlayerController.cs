@@ -22,8 +22,8 @@ public class PlayerController : MonoBehaviour
     SpriteRenderer spriteRenderer;
 
     float timerArms;
-    const float timeArms = 1.25f;
-    const float cooldownArms = 0.8f;
+    const float timeArms = 0.9f;
+    const float cooldownArms = 0.7f;
     float timerBeaks;
     const float timeBeaks = 0.75f;
     const float cooldownBeaks = 0.5f;

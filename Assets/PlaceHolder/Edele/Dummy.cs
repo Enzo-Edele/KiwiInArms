@@ -8,7 +8,7 @@ public class Dummy : MonoBehaviour
     SpriteRenderer spriteRenderer;
 
     float totalLife = 100.0f;
-    float life;
+    [SerializeField]float life;
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();

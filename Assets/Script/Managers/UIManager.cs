@@ -65,7 +65,7 @@ public class UIManager : MonoBehaviour
 
     public void UpdateHealth(float total, float actual)
     {
-        healthMask.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, originalHealthSize * (total / actual));
+        healthMask.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, originalHealthSize * (actual / total));
     }
 
     public void ButtonActivateMenu(GameObject menu)
