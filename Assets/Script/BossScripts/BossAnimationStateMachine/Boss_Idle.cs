@@ -10,8 +10,12 @@ public class Boss_Idle : StateMachineBehaviour
     public float timer = 3.0f;
     private float handlingTimer;
 
-    public float meleeAttackRange = 3.0f;
+    public float timerIdle = 2f;
+    private float timerUpHandle = 0.0f;
+    public float speedIdling = 5f;
 
+    public float meleeAttackRange = 3.0f;
+    private Vector2 randomUp;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -22,11 +26,16 @@ public class Boss_Idle : StateMachineBehaviour
             rb = animator.GetComponent<Rigidbody2D>();
 
         handlingTimer = timer;
+        if(timerUpHandle == 0.0f)
+            timerUpHandle = timerIdle;
+        randomUp = RandomUpDirection();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        animator.GetComponent<BossBehaviour>().LookAtPlayer();
+
         handlingTimer -= Time.deltaTime;
         if(handlingTimer <= 0)
         {
@@ -35,8 +44,22 @@ public class Boss_Idle : StateMachineBehaviour
             TriggerAttack(randomAttackIndex, animator);
             //RandomAttack();
         }
+        timerUpHandle -= Time.deltaTime;
+        speedIdling = timerUpHandle <= timerUpHandle / 2 ? -speedIdling : speedIdling;
 
-        
+        if (timerUpHandle <= 0)
+        {
+            timerUpHandle = timerIdle;
+            randomUp = RandomUpDirection();
+        }
+        else if(timerUpHandle <= timerUpHandle / 2)
+        {
+            randomUp = RandomUpDirection();
+        }
+
+
+        Vector2 targetPos = Vector2.MoveTowards(rb.position, rb.position +randomUp, speedIdling * Time.fixedDeltaTime);
+        rb.MovePosition(targetPos);
 
     }
 
@@ -95,5 +118,15 @@ public class Boss_Idle : StateMachineBehaviour
         }
         
         
+    }
+
+    private Vector2 RandomUpDirection()
+    {
+        Vector2 randomUp;
+
+        randomUp = new Vector2(Random.Range(-0.4f, 0.4f), 1);
+
+
+        return randomUp;
     }
 }

@@ -11,6 +11,7 @@ public class BossBehaviour : MonoBehaviour
     private Rigidbody2D rb;
     private bool isDead = false;
 
+    public bool isFlipped = false;
     [SerializeField] private GameObject projectile;
     [SerializeField] private Transform tspawnPoint;
 
@@ -42,6 +43,11 @@ public class BossBehaviour : MonoBehaviour
         UpdateUIHeatlh(health);
     }
 
+    private void FixedUpdate()
+    {
+        
+    }
+
     void UpdateUIHeatlh(int Health)
     {
         Debug.Log(Health);
@@ -71,11 +77,30 @@ public class BossBehaviour : MonoBehaviour
     public void LaunchProjectile()
     {
         GameObject proj = Instantiate(projectile, tspawnPoint);
-        proj.GetComponent<ProjectileScript>().SetDirection(new Vector2 (Vector2.MoveTowards(this.rb.position, player.transform.position, 1f).x,0));
+        proj.GetComponent<ProjectileScript>().SetDirection(new Vector2 (-Vector2.MoveTowards(this.rb.position, player.transform.position, 1f).x,0));
     }
 
     public void Death()
     {
 
+    }
+
+    public void LookAtPlayer()
+    {
+        Vector3 flipped = transform.localScale;
+        flipped.z *= -1f;
+
+        if (transform.position.x > player.transform.position.x && isFlipped)
+        {
+            transform.localScale = flipped;
+            transform.Rotate(0f, 180f, 0f);
+            isFlipped = false;
+        }
+        else if (transform.position.x < player.transform.position.x && !isFlipped)
+        {
+            transform.localScale = flipped;
+            transform.Rotate(0f, 180f, 0f);
+            isFlipped = true;
+        }
     }
 }
