@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] AttackCheck beak;
 
 
-    Animator animator;
+    public Animator animator;
     BoxCollider2D boxCollider;
     Rigidbody2D rb2d;
     SpriteRenderer spriteRenderer;
@@ -54,6 +54,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded) {
             isJumping = true;
+            animator.SetTrigger("Jump");
         }
 
         if (timerArms < 0)
@@ -84,8 +85,11 @@ public class PlayerController : MonoBehaviour
         velocity.x += Input.GetAxis("Horizontal") * speed* Time.fixedDeltaTime;
         velocity.x = Mathf.Clamp(velocity.x, -7.75f, 7.75f);
 
+        animator.SetBool("Walking", true);
+
         if(Input.GetAxis("Horizontal") < 0) FlipChild(false); 
         else if (Input.GetAxis("Horizontal") > 0) FlipChild(true); 
+        else animator.SetBool("Walking", false);
 
         transform.position = velocity;
         if (isJumping)
@@ -98,10 +102,12 @@ public class PlayerController : MonoBehaviour
     void FlipChild(bool orientation)
     {
         if (orientation) {
+            spriteRenderer.flipX = !orientation;
             beak.pos = new Vector2(Mathf.Abs(beak.pos.x), beak.pos.y);
             arms.pos = new Vector2(Mathf.Abs(arms.pos.x), arms.pos.y);
         }
         else {
+            spriteRenderer.flipX = !orientation;
             beak.pos = new Vector2(-Mathf.Abs(beak.pos.x), beak.pos.y);
             arms.pos = new Vector2(-Mathf.Abs(arms.pos.x), arms.pos.y);
         }
@@ -110,19 +116,23 @@ public class PlayerController : MonoBehaviour
     public void SetGrounded(bool newState)
     {
         isGrounded = newState;
-        if (isGrounded)
-            spriteRenderer.color = Color.green;
-        if (!isGrounded)
-            spriteRenderer.color = Color.red;
+        //if (isGrounded)
+            //spriteRenderer.color = Color.green;
+        //if (!isGrounded)
+            //spriteRenderer.color = Color.red;
     }
 
     void ArmAttack(bool state)
     {
         arms.gameObject.SetActive(state);
+        if(state)
+            animator.SetTrigger("Hit");
     }
     void BeakAttack(bool state)
     {
         beak.gameObject.SetActive(state);
+        if (state)
+            animator.SetTrigger("Beak");
     }
 
     public void ChangeHealth(float val)
