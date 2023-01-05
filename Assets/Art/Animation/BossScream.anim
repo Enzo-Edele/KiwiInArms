@@ -4369,7 +4369,7 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 2.3166666
+  - time: 2.2833333
     functionName: ActivateBurst
     data: 
     objectReferenceParameter: {fileID: 0}

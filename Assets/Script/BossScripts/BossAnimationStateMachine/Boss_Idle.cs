@@ -28,7 +28,7 @@ public class Boss_Idle : StateMachineBehaviour
         handlingTimer = timer;
         if(timerUpHandle == 0.0f)
             timerUpHandle = timerIdle;
-        randomUp = RandomUpDirection(1);
+        randomUp = RandomUpDirection(-1f);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -50,11 +50,11 @@ public class Boss_Idle : StateMachineBehaviour
         if (timerUpHandle <= 0)
         {
             timerUpHandle = timerIdle;
-            randomUp = RandomUpDirection(1);
+            randomUp = RandomUpDirection(1f);
         }
         else if(timerUpHandle <= timerUpHandle / 2)
         {
-            randomUp = RandomUpDirection(-1);
+            randomUp = RandomUpDirection(-1f);
         }
 
 
@@ -121,11 +121,11 @@ public class Boss_Idle : StateMachineBehaviour
         
     }
 
-    private Vector2 RandomUpDirection(int mult)
+    private Vector2 RandomUpDirection(float mult)
     {
         Vector2 randomUp;
 
-        randomUp = new Vector2(Random.Range(-0.1f, 0.6f) * mult, 1);
+        randomUp = new Vector2(Random.Range(-0.1f, 0.4f) * mult, 1);
 
 
         return randomUp;
