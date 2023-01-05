@@ -18,10 +18,10 @@ TagManager:
   - Player
   - PlayerGroundCheck
   - PlayerAttacks
-  - 
+  - PlayerProjectile
   - 
   - Ennemy
-  - 
+  - EnemyProjectile
   - 
   - 
   - 

@@ -2590,7 +2590,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  jumpForce: 15
+  jumpForce: 25
   isGrounded: 1
   maxLife: 2
   arms: {fileID: 2133643888}
@@ -2885,10 +2885,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1642489126}
+  - component: {fileID: 1642489130}
   - component: {fileID: 1642489129}
   - component: {fileID: 1642489128}
   - component: {fileID: 1642489127}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Beak
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2903,7 +2904,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1642489125}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.9518, y: 0.1511, z: 0}
+  m_LocalPosition: {x: 0.95, y: 0.15, z: 0}
   m_LocalScale: {x: 1.4936, y: 0.23430093, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2930,7 +2931,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &1642489128
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2941,7 +2942,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -3009,6 +3010,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1642489130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1642489125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f969564d2598fed44b424d5ca4e1f5ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1412776804}
+  pos: {x: 0.95, y: 0.15}
 --- !u!1 &1684537471
 GameObject:
   m_ObjectHideFlags: 0
@@ -4115,9 +4130,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2133643889}
   - component: {fileID: 2133643892}
+  - component: {fileID: 2133643893}
   - component: {fileID: 2133643891}
   - component: {fileID: 2133643890}
-  m_Layer: 10
+  m_Layer: 12
   m_Name: Arms
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4132,7 +4148,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2133643888}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5948, y: -0.133, z: 0}
+  m_LocalPosition: {x: 0.6, y: -0.13, z: 0}
   m_LocalScale: {x: 1.1392533, y: 0.44317245, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4159,7 +4175,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &2133643891
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4170,7 +4186,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -4238,3 +4254,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2133643893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2133643888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f969564d2598fed44b424d5ca4e1f5ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1412776804}
+  pos: {x: 0.6, y: -0.13}

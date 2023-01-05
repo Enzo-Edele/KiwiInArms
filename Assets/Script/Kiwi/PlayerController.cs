@@ -22,8 +22,11 @@ public class PlayerController : MonoBehaviour
     SpriteRenderer spriteRenderer;
 
     float timerArms;
-
+    const float timeArms = 1.25f;
+    const float cooldownArms = 0.8f;
     float timerBeaks;
+    const float timeBeaks = 0.75f;
+    const float cooldownBeaks = 0.5f;
 
     void Start()
     {
@@ -33,22 +36,45 @@ public class PlayerController : MonoBehaviour
         boxCollider = GetComponent<BoxCollider2D>();
         rb2d = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+
+        timerArms = -cooldownArms;
+        timerBeaks = -cooldownBeaks;
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            ArmAttack();
+        if (Input.GetKeyDown(KeyCode.A) && timerArms <= -cooldownArms) {
+            ArmAttack(true);
+            timerArms = timeArms;
         }
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            BeakAttack();
+        if (Input.GetKeyDown(KeyCode.E) && timerBeaks <= -cooldownBeaks) {
+            BeakAttack(true);
+            timerBeaks = timeBeaks;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
-        {
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded) {
             isJumping = true;
+        }
+
+        if (timerArms < 0)
+        {
+            ArmAttack(false);
+        }
+        if (timerArms < -cooldownArms) {
+            timerArms = -cooldownArms;
+        }
+        else if(timerArms != -cooldownArms)
+        {
+            timerArms -= Time.deltaTime;
+        }
+        if (timerBeaks < 0){
+            BeakAttack(false);
+        }
+        if (timerBeaks < -cooldownBeaks){
+            timerBeaks = -cooldownBeaks;
+        }
+        else if (timerBeaks != -cooldownBeaks){
+            timerBeaks -= Time.deltaTime;
         }
     }
 
@@ -74,13 +100,13 @@ public class PlayerController : MonoBehaviour
             spriteRenderer.color = Color.red;
     }
 
-    void ArmAttack()
+    void ArmAttack(bool state)
     {
-        arms.SetActive(true);
+        arms.SetActive(state);
     }
-    void BeakAttack()
+    void BeakAttack(bool state)
     {
-        beak.SetActive(true);
+        beak.SetActive(state);
     }
 }
 

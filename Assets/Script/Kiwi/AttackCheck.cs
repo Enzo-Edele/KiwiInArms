@@ -7,6 +7,8 @@ public class AttackCheck : MonoBehaviour
     [SerializeField] PlayerController player;
     Rigidbody2D rb2d;
 
+    [SerializeField] Vector2 pos;
+
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
@@ -15,7 +17,7 @@ public class AttackCheck : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.localPosition = new Vector3(0, 0, 0);
+        transform.localPosition = pos;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
