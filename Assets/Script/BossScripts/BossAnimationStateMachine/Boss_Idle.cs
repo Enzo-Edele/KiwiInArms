@@ -28,7 +28,7 @@ public class Boss_Idle : StateMachineBehaviour
         handlingTimer = timer;
         if(timerUpHandle == 0.0f)
             timerUpHandle = timerIdle;
-        randomUp = RandomUpDirection();
+        randomUp = RandomUpDirection(1);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -40,7 +40,7 @@ public class Boss_Idle : StateMachineBehaviour
         if(handlingTimer <= 0)
         {
             handlingTimer = timer;
-            int randomAttackIndex = Random.Range(0, 3);
+            int randomAttackIndex = Random.Range(0, 4);
             TriggerAttack(randomAttackIndex, animator);
             //RandomAttack();
         }
@@ -50,11 +50,11 @@ public class Boss_Idle : StateMachineBehaviour
         if (timerUpHandle <= 0)
         {
             timerUpHandle = timerIdle;
-            randomUp = RandomUpDirection();
+            randomUp = RandomUpDirection(1);
         }
         else if(timerUpHandle <= timerUpHandle / 2)
         {
-            randomUp = RandomUpDirection();
+            randomUp = RandomUpDirection(-1);
         }
 
 
@@ -104,7 +104,8 @@ public class Boss_Idle : StateMachineBehaviour
                 animator.SetTrigger("RangeAttack");
                 return;
             case 3:
-                //faire attaque 4 (Voler)
+                animator.SetTrigger("Scream");
+                //faire attaque 4 (un Cri)
                 return;
         }
     }
@@ -120,11 +121,11 @@ public class Boss_Idle : StateMachineBehaviour
         
     }
 
-    private Vector2 RandomUpDirection()
+    private Vector2 RandomUpDirection(int mult)
     {
         Vector2 randomUp;
 
-        randomUp = new Vector2(Random.Range(-0.4f, 0.4f), 1);
+        randomUp = new Vector2(Random.Range(-0.1f, 0.6f) * mult, 1);
 
 
         return randomUp;

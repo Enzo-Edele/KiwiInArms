@@ -15,6 +15,8 @@ public class BossBehaviour : MonoBehaviour
     [SerializeField] private GameObject projectile;
     [SerializeField] private Transform tspawnPoint;
 
+    [SerializeField] private ParticleSystem ScreamBurst;
+
 
     private GameObject player = null;
     private void Awake()
@@ -76,10 +78,10 @@ public class BossBehaviour : MonoBehaviour
 
     public void LaunchProjectile()
     {
-        GameObject proj = Instantiate(projectile, tspawnPoint);
-        proj.GetComponent<ProjectileScript>().SetDirection(new Vector2 (-Vector2.MoveTowards(this.rb.position, player.transform.position, 1f).x,0));
+        GameObject proj = Instantiate(projectile, tspawnPoint.position,Quaternion.identity);
+        proj.GetComponent<ProjectileScript>().SetDirection(new Vector2 (Vector2.MoveTowards(tspawnPoint.position, player.transform.position, 1f).x * -1,0));
     }
-
+    
     public void Death()
     {
 
@@ -102,5 +104,10 @@ public class BossBehaviour : MonoBehaviour
             transform.Rotate(0f, 180f, 0f);
             isFlipped = true;
         }
+    }
+
+    public void ActivateBurst()
+    {
+        ScreamBurst.Play();
     }
 }
