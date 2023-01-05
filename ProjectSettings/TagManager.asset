@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Boss
+  - Path
   layers:
   - Default
   - TransparentFX
@@ -15,14 +17,14 @@ TagManager:
   - 
   - 
   - 
+  - Player
+  - PlayerGroundCheck
+  - PlayerAttacks
+  - PlayerProjectile
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Boss
+  - BossAttacks
+  - BossProjectile
   - 
   - 
   - 

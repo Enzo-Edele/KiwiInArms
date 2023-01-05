@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class BossBehaviour : MonoBehaviour
 {
-    [SerializeField] private int health = 800;
+    private float health;
+    [SerializeField] private float maxHealth = 800;
 
     private bool invincible = false;
     private Animator animator;
@@ -24,6 +25,7 @@ public class BossBehaviour : MonoBehaviour
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
+        health = maxHealth;
     }
     void Start()
     {
@@ -65,9 +67,10 @@ public class BossBehaviour : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    void UpdateUIHeatlh(int Health)
+    void UpdateUIHeatlh(float Health)
     {
         Debug.Log(Health);
+        UIManager.Instance.UpdateHealth(maxHealth, Health);
     }
 
     public void TakeDamage(int damage)
@@ -76,10 +79,6 @@ public class BossBehaviour : MonoBehaviour
             this.health -= damage;
     }
 
-    public void BossAttack(int damage)
-    {
-
-    }
 
     public void SetIsInvincible(bool isInvincible)
     {
@@ -134,5 +133,10 @@ public class BossBehaviour : MonoBehaviour
     public void ActivateBurst()
     {
         ScreamBurst.Play();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        
     }
 }
