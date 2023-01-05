@@ -79,7 +79,7 @@ public class BossBehaviour : MonoBehaviour
         //UIManager.Instance.UpdateHealth(maxHealth, Health);
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         if(!invincible)
             this.health -= damage;

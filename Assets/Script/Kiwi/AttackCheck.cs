@@ -29,5 +29,11 @@ public class AttackCheck : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Enemy") collision.GetComponent<Dummy>().ChangeHealth(damage);
+        if (collision.gameObject.layer == 15)
+        {
+            BossBehaviour boss = collision.gameObject.GetComponentInParent<BossBehaviour>();
+
+            boss.TakeDamage(damage);
+        }
     }
 }
