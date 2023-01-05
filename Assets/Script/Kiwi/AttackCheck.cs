@@ -7,22 +7,27 @@ public class AttackCheck : MonoBehaviour
     [SerializeField] PlayerController player;
     Rigidbody2D rb2d;
 
-    [SerializeField] Vector2 pos;
+    public Vector2 pos;
+    [SerializeField] float damage;
 
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        pos = transform.localPosition;
     }
 
-    // Update is called once per frame
     void Update()
     {
         transform.localPosition = pos;
     }
 
+    public void Flip(bool orientation)
+    {
+
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //check if good
-        //damage target
+        if (collision.tag == "Enemy") collision.GetComponent<Dummy>().ChangeHealth(damage);
     }
 }

@@ -9,11 +9,11 @@ public class PlayerController : MonoBehaviour
     bool isJumping = false;
     [SerializeField] bool isGrounded = true;
 
-    [SerializeField] int maxLife;
-    int life;
+    [SerializeField] float maxLife;
+    float life;
 
-    [SerializeField] GameObject arms;
-    [SerializeField] GameObject beak;
+    [SerializeField] AttackCheck arms;
+    [SerializeField] AttackCheck beak;
 
 
     Animator animator;
@@ -82,12 +82,28 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 velocity = transform.position;
         velocity.x += Input.GetAxis("Horizontal") * speed* Time.fixedDeltaTime;
+        velocity.x = Mathf.Clamp(velocity.x, -7.75f, 7.75f);
+
+        if(Input.GetAxis("Horizontal") < 0) FlipChild(false); 
+        else if (Input.GetAxis("Horizontal") > 0) FlipChild(true); 
 
         transform.position = velocity;
         if (isJumping)
         {
             rb2d.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
             isJumping = false;
+        }
+    }
+
+    void FlipChild(bool orientation)
+    {
+        if (orientation) {
+            beak.pos = new Vector2(Mathf.Abs(beak.pos.x), beak.pos.y);
+            arms.pos = new Vector2(Mathf.Abs(arms.pos.x), arms.pos.y);
+        }
+        else {
+            beak.pos = new Vector2(-Mathf.Abs(beak.pos.x), beak.pos.y);
+            arms.pos = new Vector2(-Mathf.Abs(arms.pos.x), arms.pos.y);
         }
     }
 
@@ -102,11 +118,17 @@ public class PlayerController : MonoBehaviour
 
     void ArmAttack(bool state)
     {
-        arms.SetActive(state);
+        arms.gameObject.SetActive(state);
     }
     void BeakAttack(bool state)
     {
-        beak.SetActive(state);
+        beak.gameObject.SetActive(state);
+    }
+
+    public void ChangeHealth(float val)
+    {
+        life += val;
+        if (life < 0) print("T nul.");
     }
 }
 

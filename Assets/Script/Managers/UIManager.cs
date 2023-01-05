@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using TMPro;
 
 public class UIManager : MonoBehaviour
@@ -13,6 +14,9 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] GameObject optionMenu;
 
+    [SerializeField] Image healthMask;
+    float originalHealthSize;
+
     GameObject previousMenu;
 
     #endregion
@@ -20,7 +24,8 @@ public class UIManager : MonoBehaviour
     void Awake()
     {
         Instance = this;
-        ActivateMainMenu();
+        originalHealthSize = healthMask.rectTransform.rect.width;
+        //ActivateMainMenu();
     }
 
     void Update()
@@ -57,6 +62,11 @@ public class UIManager : MonoBehaviour
         optionMenu.SetActive(false);
     }
     #endregion
+
+    public void UpdateHealth(float total, float actual)
+    {
+        healthMask.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, originalHealthSize * (total / actual));
+    }
 
     public void ButtonActivateMenu(GameObject menu)
     {
