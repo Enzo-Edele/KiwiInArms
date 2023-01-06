@@ -96,3 +96,8 @@ MonoBehaviour:
     volume: 0.22
     loop: 1
     source: {fileID: 0}
+  - name: Glory
+    clip: {fileID: 8300000, guid: 213352fd4ea22d24b9c2a00c2fc3ba17, type: 3}
+    volume: 0.238
+    loop: 1
+    source: {fileID: 0}

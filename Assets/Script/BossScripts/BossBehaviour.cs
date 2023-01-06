@@ -89,8 +89,7 @@ public class BossBehaviour : MonoBehaviour
 
     public void EndGame()
     {
-        UIManager.Instance.DeactivateHealth();
-        UIManager.Instance.ActivateEndMenu();
+        
         Destroy(this.gameObject);
 
     }
@@ -195,6 +194,11 @@ public class BossBehaviour : MonoBehaviour
     public void StopSoundEffect(string soundCue)
     {
         SoundManager.Instance.StopSound(soundCue);
+    }
+
+    public void StopMusic(string music)
+    {
+        SoundManager.Instance.StopMusic(music);
     }
 
     public void CamShake()
