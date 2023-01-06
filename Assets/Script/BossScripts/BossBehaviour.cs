@@ -89,7 +89,7 @@ public class BossBehaviour : MonoBehaviour
 
     public void EndGame()
     {
-        
+        UIManager.Instance.EndFight(true);
         Destroy(this.gameObject);
 
     }

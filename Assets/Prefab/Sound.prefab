@@ -92,12 +92,12 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Hit
     clip: {fileID: 8300000, guid: 570bd79551b9c9d41824cb1272e7a9d4, type: 3}
-    volume: 0.382
+    volume: 0.214
     loop: 0
     source: {fileID: 0}
   - name: Squeeze
     clip: {fileID: 8300000, guid: 7ff7c591f5a7fec489de17911e0158ff, type: 3}
-    volume: 0.411
+    volume: 0.509
     loop: 0
     source: {fileID: 0}
   musics:
