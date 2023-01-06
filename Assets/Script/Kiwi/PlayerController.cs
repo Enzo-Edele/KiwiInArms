@@ -142,6 +142,7 @@ public class PlayerController : MonoBehaviour
     public void ChangeHealth(float val)
     {
         life += val;
+        if (val < 0) print("ouille");
         if (life < 0) UIManager.Instance.ActivateEndMenu();
     }
 }

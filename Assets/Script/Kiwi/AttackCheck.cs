@@ -35,7 +35,7 @@ public class AttackCheck : MonoBehaviour
         {
             BossBehaviour boss = collision.gameObject.GetComponentInParent<BossBehaviour>();
 
-            boss.TakeDamage(damage);
+            boss.TakeDamage(-damage);
         }
     }
 }
