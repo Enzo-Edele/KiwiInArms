@@ -39,6 +39,9 @@ public class PlayerController : MonoBehaviour
 
         timerArms = -cooldownArms;
         timerBeaks = -cooldownBeaks;
+
+        UIManager.Instance.UpdateHealth(maxHealth, health);
+        UIManager.Instance.SetPlayer(this);
     }
 
     void Update()
