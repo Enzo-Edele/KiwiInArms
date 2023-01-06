@@ -9,8 +9,8 @@ public class PlayerController : MonoBehaviour
     bool isJumping = false;
     [SerializeField] bool isGrounded = true;
 
-    [SerializeField] float maxLife;
-    float life;
+    [SerializeField] float maxHealth;
+    [SerializeField] float health;
 
     [SerializeField] AttackCheck arms;
     [SerializeField] AttackCheck beak;
@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        life = maxLife;
+        health = maxHealth;
 
         animator = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
@@ -141,9 +141,13 @@ public class PlayerController : MonoBehaviour
 
     public void ChangeHealth(float val)
     {
-        life += val;
+        health += val;
         if (val < 0) print("ouille");
-        if (life < 0) UIManager.Instance.ActivateEndMenu();
+        UIManager.Instance.UpdatePlayerHealth(maxHealth, health);
+        if (health < 0) { 
+            UIManager.Instance.ActivateEndMenu();
+            UIManager.Instance.DeactivateHealth();
+        }
     }
 }
 

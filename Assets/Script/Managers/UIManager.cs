@@ -14,8 +14,14 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] GameObject endMenu;
 
-    [SerializeField] Image healthMask;
-    float originalHealthSize;
+    [SerializeField] Image bossHealthMask;
+    float originalBossHealthSize;
+
+    [SerializeField] Image playerHealthMask;
+    float originalPlayerHealthSize;
+
+    [SerializeField] GameObject playerHealthBar;
+    [SerializeField] GameObject bossHealthBar;
 
     GameObject previousMenu;
 
@@ -24,7 +30,8 @@ public class UIManager : MonoBehaviour
     void Awake()
     {
         Instance = this;
-        originalHealthSize = healthMask.rectTransform.rect.width;
+        originalBossHealthSize = bossHealthMask.rectTransform.rect.width;
+        originalPlayerHealthSize = playerHealthMask.rectTransform.rect.width;
         //ActivateMainMenu();
     }
 
@@ -61,11 +68,26 @@ public class UIManager : MonoBehaviour
     {
         endMenu.SetActive(false);
     }
+    public void ActivateHealth()
+    {
+        playerHealthBar.SetActive(true);
+        bossHealthBar.SetActive(true);
+    }
+    public void DeactivateHealth()
+    {
+        playerHealthBar.SetActive(false);
+        bossHealthBar.SetActive(false);
+    }
     #endregion
 
     public void UpdateHealth(float total, float actual)
     {
-        healthMask.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, originalHealthSize * (actual / total));
+        bossHealthMask.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, originalBossHealthSize * (actual / total));
+    }
+
+    public void UpdatePlayerHealth(float total, float actual)
+    {
+        playerHealthMask.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, originalBossHealthSize * (actual / total));
     }
 
     public void ButtonActivateMenu(GameObject menu)
