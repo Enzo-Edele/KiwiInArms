@@ -1,0 +1,98 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8170108396243064919
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8170108396243064913}
+  - component: {fileID: 8170108396243064918}
+  m_Layer: 0
+  m_Name: Sound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8170108396243064913
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8170108396243064919}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.984312, y: 0.7006193, z: -0.20538288}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8170108396243064918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8170108396243064919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bfe12b26bfa7104eb6b28d19d995154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundsEffects:
+  - name: Scream
+    clip: {fileID: 8300000, guid: b4b09c2c8f2faac43b958fefe4d0469c, type: 3}
+    volume: 0.278
+    loop: 0
+    source: {fileID: 0}
+  - name: StartSlash
+    clip: {fileID: 8300000, guid: efb96a274b36e664a948321b91472f20, type: 3}
+    volume: 0.405
+    loop: 0
+    source: {fileID: 0}
+  - name: Slash
+    clip: {fileID: 8300000, guid: 9e977b0e4bf40ca43abb899ee1a011d8, type: 3}
+    volume: 0.405
+    loop: 0
+    source: {fileID: 0}
+  - name: Wind
+    clip: {fileID: 8300000, guid: 4ba4153b5b2a92d458e1c2c9b7805526, type: 3}
+    volume: 0.434
+    loop: 0
+    source: {fileID: 0}
+  - name: IdleSound
+    clip: {fileID: 8300000, guid: 6f6e33ee8bd8eaf478e4846a371f33dd, type: 3}
+    volume: 0.087
+    loop: 0
+    source: {fileID: 0}
+  - name: IdleFlap
+    clip: {fileID: 8300000, guid: 515bb0df486308845b9fc22d0236d1fe, type: 3}
+    volume: 0.538
+    loop: 0
+    source: {fileID: 0}
+  - name: Projectile
+    clip: {fileID: 8300000, guid: 6be2b16dfd753af4bba96503e058dc88, type: 3}
+    volume: 0.359
+    loop: 0
+    source: {fileID: 0}
+  - name: Punch
+    clip: {fileID: 8300000, guid: 11149c1ac2662154eac830e72e6851b1, type: 3}
+    volume: 0.33
+    loop: 0
+    source: {fileID: 0}
+  - name: Piercing
+    clip: {fileID: 8300000, guid: 4a42881b788df644aa2e303d0860ccfe, type: 3}
+    volume: 0.365
+    loop: 0
+    source: {fileID: 0}
+  musics:
+  - name: Rising
+    clip: {fileID: 8300000, guid: 1289c46251efcaa49bfbf0ecd2fc86da, type: 3}
+    volume: 0.22
+    loop: 1
+    source: {fileID: 0}
