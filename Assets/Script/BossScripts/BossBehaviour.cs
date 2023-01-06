@@ -82,7 +82,10 @@ public class BossBehaviour : MonoBehaviour
     public void TakeDamage(float damage)
     {
         if(!invincible)
+        {
             this.health -= damage;
+            animator.SetTrigger("Hurt");
+        }
     }
 
 
@@ -154,7 +157,7 @@ public class BossBehaviour : MonoBehaviour
                 Debug.Log("OUIOUI");
                 PlayerController player = other.gameObject.GetComponent<PlayerController>();
 
-                player.ChangeHealth(10);
+                player.ChangeHealth(-10);
             }
         }
         
