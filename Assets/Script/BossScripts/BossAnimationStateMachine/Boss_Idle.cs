@@ -40,7 +40,7 @@ public class Boss_Idle : StateMachineBehaviour
         if(handlingTimer <= 0)
         {
             handlingTimer = timer;
-            int randomAttackIndex = 3;
+            int randomAttackIndex = Random.Range(0, 4);
             TriggerAttack(randomAttackIndex, animator);
             //RandomAttack();
         }
@@ -92,20 +92,16 @@ public class Boss_Idle : StateMachineBehaviour
         switch (randAttackIndex)
         {
             case 0:
-                //faire attaque 1 (un Cri)
                 animator.SetTrigger("Fly");
                 return;
             case 1:
-                //faire attaque 2 (Coup de griffe)
                 animator.SetTrigger("Attack");
                 return;
             case 2:
-                //faire attaque 3 (Lancer de plume)
                 animator.SetTrigger("RangeAttack");
                 return;
             case 3:
                 animator.SetTrigger("Scream");
-                //faire attaque 4 (un Cri)
                 return;
         }
     }
@@ -125,7 +121,7 @@ public class Boss_Idle : StateMachineBehaviour
     {
         Vector2 randomUp;
 
-        randomUp = new Vector2(Random.Range(-0.1f, 0.4f) * mult, 1);
+        randomUp = new Vector2(Random.Range(-0.05f, 0.6f) * mult, 1);
 
 
         return randomUp;
