@@ -71,10 +71,6 @@ public class BossBehaviour : MonoBehaviour
         
     }
 
-    public void Destroy()
-    {
-        Destroy(this.gameObject);
-    }
 
     void UpdateUIHeatlh(float Health)
     {
@@ -89,6 +85,14 @@ public class BossBehaviour : MonoBehaviour
             this.health -= damage;
             animator.SetTrigger("Hurt");
         }
+    }
+
+    public void EndGame()
+    {
+        UIManager.Instance.DeactivateHealth();
+        UIManager.Instance.ActivateEndMenu();
+        Destroy(this.gameObject);
+
     }
 
 
