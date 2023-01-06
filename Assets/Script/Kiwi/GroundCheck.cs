@@ -22,15 +22,18 @@ public class GroundCheck : MonoBehaviour
     {
         player.SetGrounded(true);
         player.animator.SetTrigger("Land");
+        player.animator.SetBool("Landed", true);
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
         player.SetGrounded(true);
+        player.animator.SetBool("Landed", false);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         player.SetGrounded(false);
+        player.animator.SetBool("Landed", false);
     }
 }

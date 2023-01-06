@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] AttackCheck beak;
 
 
-    [HideInInspector]public Animator animator;
+    public Animator animator;
     BoxCollider2D boxCollider;
     Rigidbody2D rb2d;
     SpriteRenderer spriteRenderer;
