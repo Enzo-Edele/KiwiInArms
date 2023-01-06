@@ -64,7 +64,7 @@ public class UIManager : MonoBehaviour
     {
         endMenu.SetActive(true);
     }
-    void DeactivateEndMenu()
+    public void DeactivateEndMenu()
     {
         endMenu.SetActive(false);
     }
