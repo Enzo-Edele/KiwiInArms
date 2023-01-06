@@ -13,6 +13,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject pauseMenu;
 
     [SerializeField] GameObject endMenu;
+    [SerializeField] TMP_Text EndTitle;
+
+    [SerializeField] GameObject credit;
 
     [SerializeField] Image bossHealthMask;
     float originalBossHealthSize;
@@ -32,7 +35,7 @@ public class UIManager : MonoBehaviour
         Instance = this;
         originalBossHealthSize = bossHealthMask.rectTransform.rect.width;
         originalPlayerHealthSize = playerHealthMask.rectTransform.rect.width;
-        //ActivateMainMenu();
+        ActivateMainMenu();
     }
 
     void Update()
@@ -44,37 +47,38 @@ public class UIManager : MonoBehaviour
     }
 
     #region Menus
-    void ActivateMainMenu()
-    {
+    void ActivateMainMenu() {
         mainMenu.SetActive(true);
     }
-    void DeactivateMainMenu()
-    {
+    void DeactivateMainMenu() {
         mainMenu.SetActive(false);
     }
-    void ActivatePauseMenu()
-    {
+    public void ActivatePauseMenu() {
         pauseMenu.SetActive(true);
+        ButtonPause(false);
     }
-    void DeactivatePauseMenu()
-    {
+    void DeactivatePauseMenu() {
         pauseMenu.SetActive(false);
     }
-    public void ActivateEndMenu()
-    {
+    public void ActivateEndMenu() {
         endMenu.SetActive(true);
     }
-    public void DeactivateEndMenu()
-    {
+    public void DeactivateEndMenu() {
         endMenu.SetActive(false);
     }
-    public void ActivateHealth()
+    public void ActivateCredit()
     {
+        credit.SetActive(true);
+    }
+    public void DeactivateCredit()
+    {
+        credit.SetActive(false);
+    }
+    public void ActivateHealth() {
         playerHealthBar.SetActive(true);
         bossHealthBar.SetActive(true);
     }
-    public void DeactivateHealth()
-    {
+    public void DeactivateHealth() {
         playerHealthBar.SetActive(false);
         bossHealthBar.SetActive(false);
     }
@@ -89,7 +93,31 @@ public class UIManager : MonoBehaviour
     {
         playerHealthMask.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, originalBossHealthSize * (actual / total));
     }
+    public void EndFight(bool win) {
+        if (win)
+        {
+            EndTitle.text = "You Win";
+        }
+        else
+        {
+            EndTitle.text = "You Loose";
+        }
+        ActivateEndMenu();
+        ActivateCredit();
+        DeactivateHealth();
+    }
 
+    public void ButtonPause(bool state)
+    {
+        if (state)
+        {
+            Time.timeScale = 1.0f;
+        }
+        else
+        {
+            Time.timeScale = 0.0f;
+        }
+    }
     public void ButtonActivateMenu(GameObject menu)
     {
         menu.SetActive(true);
