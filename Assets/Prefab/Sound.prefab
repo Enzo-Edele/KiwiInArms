@@ -62,8 +62,8 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Wind
     clip: {fileID: 8300000, guid: 4ba4153b5b2a92d458e1c2c9b7805526, type: 3}
-    volume: 0.434
-    loop: 0
+    volume: 0.521
+    loop: 1
     source: {fileID: 0}
   - name: IdleSound
     clip: {fileID: 8300000, guid: 6f6e33ee8bd8eaf478e4846a371f33dd, type: 3}
@@ -88,6 +88,11 @@ MonoBehaviour:
   - name: Piercing
     clip: {fileID: 8300000, guid: 4a42881b788df644aa2e303d0860ccfe, type: 3}
     volume: 0.365
+    loop: 0
+    source: {fileID: 0}
+  - name: Hit
+    clip: {fileID: 8300000, guid: 570bd79551b9c9d41824cb1272e7a9d4, type: 3}
+    volume: 0.382
     loop: 0
     source: {fileID: 0}
   musics:

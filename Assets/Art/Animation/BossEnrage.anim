@@ -15398,8 +15398,29 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 3.4666667
+  - time: 0
+    functionName: CamShake
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 3.3
     functionName: PlaySoundEffect
+    data: Wind
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 3.3166666
+    functionName: CamShake
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 5.516667
+    functionName: StopSoundEffect
     data: Wind
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
