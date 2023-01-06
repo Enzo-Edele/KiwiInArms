@@ -6,6 +6,7 @@ public class AttackCheck : MonoBehaviour
 {
     [SerializeField] PlayerController player;
     Rigidbody2D rb2d;
+    [HideInInspector]public Animator animator;
 
     public Vector2 pos;
     [SerializeField] float damage;
@@ -13,6 +14,7 @@ public class AttackCheck : MonoBehaviour
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         pos = transform.localPosition;
     }
 
@@ -33,7 +35,7 @@ public class AttackCheck : MonoBehaviour
         {
             BossBehaviour boss = collision.gameObject.GetComponentInParent<BossBehaviour>();
 
-            boss.TakeDamage(damage);
+            boss.TakeDamage(-damage);
         }
     }
 }
