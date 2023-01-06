@@ -30,6 +30,6 @@ public class Dummy : MonoBehaviour
     {
         life += val;
         if (life < 0) print("Je me mourute.");
-        UIManager.Instance.UpdateHealth(totalLife, life);
+        UIManager.Instance.UpdateBossHealth(totalLife, life);
     }
 }

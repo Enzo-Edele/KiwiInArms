@@ -86,14 +86,14 @@ public class UIManager : MonoBehaviour
     }
     #endregion
 
-    public void UpdateHealth(float total, float actual)
+    public void UpdateBossHealth(float total, float actual)
     {
         bossHealthMask.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, originalBossHealthSize * (actual / total));
     }
 
     public void UpdatePlayerHealth(float total, float actual)
     {
-        playerHealthMask.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, originalBossHealthSize * (actual / total));
+        playerHealthMask.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, originalPlayerHealthSize * (actual / total));
     }
     public void EndFight(bool win) {
         if (win)

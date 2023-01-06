@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] float speed;
     [SerializeField] float jumpForce;
+    [SerializeField] float pushForce = 4.0f;
     bool isJumping = false;
     [SerializeField] bool isGrounded = true;
 
@@ -45,7 +46,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        UIManager.Instance.UpdateHealth(maxHealth, health);
+        UIManager.Instance.UpdateBossHealth(maxHealth, health);
         if ((Input.GetKeyDown(KeyCode.A) || Input.GetMouseButtonDown(1)) && 
             timerArms <= -cooldownArms && timerBeaks <= -cooldownBeaks) {
             ArmAttack(true);
@@ -183,7 +184,16 @@ public class PlayerController : MonoBehaviour
         UIManager.Instance.UpdatePlayerHealth(maxHealth, health);
         if (health <= 0) { 
             UIManager.Instance.EndFight(false);
+            Destroy(this.gameObject);
         }
+    }
+
+    public void PushBack(BossBehaviour boss)
+    {
+        Vector2 pushDir = this.rb2d.position - boss.GetComponent<Rigidbody2D>().position;
+        pushDir.Normalize();
+
+        this.rb2d.AddForce(pushDir * pushForce * 40);
     }
 }
 
