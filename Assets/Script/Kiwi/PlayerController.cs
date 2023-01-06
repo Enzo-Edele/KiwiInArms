@@ -40,12 +40,12 @@ public class PlayerController : MonoBehaviour
         timerArms = -cooldownArms;
         timerBeaks = -cooldownBeaks;
 
-        UIManager.Instance.UpdateHealth(maxHealth, health);
         UIManager.Instance.SetPlayer(this);
     }
 
     void Update()
     {
+        UIManager.Instance.UpdateHealth(maxHealth, health);
         if ((Input.GetKeyDown(KeyCode.A) || Input.GetMouseButtonDown(1)) && 
             timerArms <= -cooldownArms && timerBeaks <= -cooldownBeaks) {
             ArmAttack(true);
@@ -181,7 +181,7 @@ public class PlayerController : MonoBehaviour
         if (val < 0) print("ouille");
         animator.SetTrigger("Hurt");
         UIManager.Instance.UpdatePlayerHealth(maxHealth, health);
-        if (health < 0) { 
+        if (health <= 0) { 
             UIManager.Instance.EndFight(false);
         }
     }

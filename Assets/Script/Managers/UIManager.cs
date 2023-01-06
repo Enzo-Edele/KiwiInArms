@@ -104,7 +104,7 @@ public class UIManager : MonoBehaviour
         }
         else
         {
-            EndTitle.text = "You Loose";
+            EndTitle.text = "You Lose";
         }
         ActivateEndMenu();
         DeactivateHealth();
