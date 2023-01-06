@@ -23,10 +23,14 @@ AnimationClip:
       value: {fileID: 21300000, guid: 6158308432386e143b3c73e16a85f96f, type: 3}
     - time: 0.25
       value: {fileID: 21300000, guid: 20c1a1b2b8c0ce84fb4516de3007a68a, type: 3}
-    - time: 0.43333334
+    - time: 0.35
       value: {fileID: 21300000, guid: 0b419fa8165cb6b4aa220cf23fb12829, type: 3}
-    - time: 0.6666667
+    - time: 0.5
       value: {fileID: 21300000, guid: 0b419fa8165cb6b4aa220cf23fb12829, type: 3}
+    - time: 0.53333336
+      value: {fileID: 21300000, guid: 20c1a1b2b8c0ce84fb4516de3007a68a, type: 3}
+    - time: 0.5833333
+      value: {fileID: 21300000, guid: 6158308432386e143b3c73e16a85f96f, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -50,17 +54,19 @@ AnimationClip:
     - {fileID: 21300000, guid: 20c1a1b2b8c0ce84fb4516de3007a68a, type: 3}
     - {fileID: 21300000, guid: 0b419fa8165cb6b4aa220cf23fb12829, type: 3}
     - {fileID: 21300000, guid: 0b419fa8165cb6b4aa220cf23fb12829, type: 3}
+    - {fileID: 21300000, guid: 20c1a1b2b8c0ce84fb4516de3007a68a, type: 3}
+    - {fileID: 21300000, guid: 6158308432386e143b3c73e16a85f96f, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.68333334
+    m_StopTime: 0.59999996
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
     m_HasAdditiveReferencePose: 0
-    m_LoopTime: 1
+    m_LoopTime: 0
     m_LoopBlend: 0
     m_LoopBlendOrientation: 0
     m_LoopBlendPositionY: 0
@@ -74,4 +80,25 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.25
+    functionName: ActivateHitBox
+    data: Arm
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.25
+    functionName: PlaySoundEffect
+    data: Punch
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.53333336
+    functionName: DeactivateHitBox
+    data: Arm
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

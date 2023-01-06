@@ -22,11 +22,11 @@ public class PlayerController : MonoBehaviour
     SpriteRenderer spriteRenderer;
 
     float timerArms;
-    const float timeArms = 0.9f;
-    const float cooldownArms = 0.7f;
+    const float timeArms = 0.4f;
+    const float cooldownArms = 0.4f;
     float timerBeaks;
-    const float timeBeaks = 0.75f;
-    const float cooldownBeaks = 0.5f;
+    const float timeBeaks = 0.3f;
+    const float cooldownBeaks = 0.25f;
 
     void Start()
     {
@@ -43,11 +43,11 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A) && timerArms <= -cooldownArms) {
+        if ((Input.GetKeyDown(KeyCode.A) || Input.GetMouseButtonDown(1)) && timerArms <= -cooldownArms) {
             ArmAttack(true);
             timerArms = timeArms;
         }
-        if (Input.GetKeyDown(KeyCode.E) && timerBeaks <= -cooldownBeaks) {
+        if ((Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(0))&& timerBeaks <= -cooldownBeaks) {
             BeakAttack(true);
             timerBeaks = timeBeaks;
         }
@@ -124,7 +124,6 @@ public class PlayerController : MonoBehaviour
 
     void ArmAttack(bool state)
     {
-        arms.GetComponent<BoxCollider2D>().enabled = state;
         if (state) {
             animator.SetTrigger("Hit");
             arms.animator.SetTrigger("Hit");
@@ -132,11 +131,38 @@ public class PlayerController : MonoBehaviour
     }
     void BeakAttack(bool state)
     {
-        beak.GetComponent<BoxCollider2D>().enabled = state;
         if (state) {
             animator.SetTrigger("Beak");
             beak.animator.SetTrigger("Hit");
         }
+    }
+
+    public void ActivateHitBox(string attack)
+    {
+        if(attack == "Beak")
+        {
+            beak.GetComponent<BoxCollider2D>().enabled = true;
+        }
+        else if(attack == "Arm"){
+            arms.GetComponent<BoxCollider2D>().enabled = true;
+        }
+    }
+
+    public void DeactivateHitBox(string attack)
+    {
+        if (attack == "Beak")
+        {
+            beak.GetComponent<BoxCollider2D>().enabled = false;
+        }
+        else if (attack == "Arm")
+        {
+            arms.GetComponent<BoxCollider2D>().enabled = false;
+        }
+    }
+
+    public void PlaySoundEffect(string cue)
+    {
+        SoundManager.Instance.Play(cue);
     }
 
     public void ChangeHealth(float val)
