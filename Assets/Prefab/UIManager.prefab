@@ -35,10 +35,10 @@ RectTransform:
   m_Father: {fileID: 1634021646}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.03285715, y: 0.08888889}
-  m_AnchorMax: {x: 0.9671428, y: 0.9055557}
-  m_AnchoredPosition: {x: 145.51395, y: -1.3528976}
-  m_SizeDelta: {x: -128.8193, y: -95.3075}
+  m_AnchorMin: {x: 0.24000001, y: 0.33888888}
+  m_AnchorMax: {x: 0.9928572, y: 0.6333333}
+  m_AnchoredPosition: {x: 0.51394653, y: 0.64710236}
+  m_SizeDelta: {x: -1.8193054, y: -1.3075027}
   m_Pivot: {x: -0.000000014901161, y: 0.5}
 --- !u!222 &643550448
 CanvasRenderer:
@@ -334,7 +334,7 @@ GameObject:
   - component: {fileID: 1864085150}
   - component: {fileID: 1864085149}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Credit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -388,27 +388,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Graphisme
-
-    -
-
-
-    Progrmation
-
-    -CLOUP Enzo
-
-    -
-
-
-    Font
-
-    -Eagle
-    par Best Font Studio
-
-
-    Music
-
-    -'
+  m_text: "Graphisme\n- Fabien Capelier \n\nProgrmation\n- Enzo CLOUP\n- Allan COUETTE\n\nFont\n-Eagle
+    par Best Font Studio\n\nMusic\n- Fight for the Glory par Whitesand"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f01668541af5bcd49bfbe67c50d2fbdd, type: 2}
   m_sharedMaterial: {fileID: -7281142147023170298, guid: f01668541af5bcd49bfbe67c50d2fbdd, type: 2}
@@ -435,8 +416,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 42
-  m_fontSizeBase: 42
+  m_fontSize: 44
+  m_fontSizeBase: 44
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -735,7 +716,7 @@ MonoBehaviour:
   pauseMenu: {fileID: 2828003201994097536}
   endMenu: {fileID: 2828003201176901545}
   EndTitle: {fileID: 2828003202378780439}
-  credit: {fileID: 0}
+  credit: {fileID: 1333370279}
   bossHealthMask: {fileID: 2828003202841519119}
   playerHealthMask: {fileID: 643550446}
   playerHealthBar: {fileID: 1634021645}
@@ -3891,6 +3872,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Main
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2828003200860766546}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: ActivateHealth
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &4238055869094520074
