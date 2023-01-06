@@ -43,11 +43,13 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if ((Input.GetKeyDown(KeyCode.A) || Input.GetMouseButtonDown(1)) && timerArms <= -cooldownArms) {
+        if ((Input.GetKeyDown(KeyCode.A) || Input.GetMouseButtonDown(1)) && 
+            timerArms <= -cooldownArms && timerBeaks <= -cooldownBeaks) {
             ArmAttack(true);
             timerArms = timeArms;
         }
-        if ((Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(0))&& timerBeaks <= -cooldownBeaks) {
+        if ((Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(0))&& 
+            timerBeaks <= -cooldownBeaks && timerArms <= -cooldownArms) {
             BeakAttack(true);
             timerBeaks = timeBeaks;
         }
@@ -55,6 +57,11 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded) {
             isJumping = true;
             animator.SetTrigger("Jump");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            UIManager.Instance.ActivatePauseMenu();
         }
 
         if (timerArms < 0)
@@ -171,8 +178,7 @@ public class PlayerController : MonoBehaviour
         if (val < 0) print("ouille");
         UIManager.Instance.UpdatePlayerHealth(maxHealth, health);
         if (health < 0) { 
-            UIManager.Instance.ActivateEndMenu();
-            UIManager.Instance.DeactivateHealth();
+            UIManager.Instance.EndFight(false);
         }
     }
 }

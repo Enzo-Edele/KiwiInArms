@@ -218,42 +218,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIManager
       objectReference: {fileID: 0}
-    - target: {fileID: 2828003201090844169, guid: 06fd0e33262c45749a8979a0f5c5de0f, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2828003201090844169, guid: 06fd0e33262c45749a8979a0f5c5de0f, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2828003201090844169, guid: 06fd0e33262c45749a8979a0f5c5de0f, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2828003201090844169, guid: 06fd0e33262c45749a8979a0f5c5de0f, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
-      value: 
-      objectReference: {fileID: 451881109}
-    - target: {fileID: 2828003201090844169, guid: 06fd0e33262c45749a8979a0f5c5de0f, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2828003201090844169, guid: 06fd0e33262c45749a8979a0f5c5de0f, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: ButtonChangeSceneString
-      objectReference: {fileID: 0}
-    - target: {fileID: 2828003201090844169, guid: 06fd0e33262c45749a8979a0f5c5de0f, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
-      value: UIManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 2828003201090844169, guid: 06fd0e33262c45749a8979a0f5c5de0f, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_StringArgument
-      value: Main
-      objectReference: {fileID: 0}
-    - target: {fileID: 2828003201090844169, guid: 06fd0e33262c45749a8979a0f5c5de0f, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06fd0e33262c45749a8979a0f5c5de0f, type: 3}
 --- !u!224 &451881108 stripped
@@ -261,17 +225,68 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2828003200860766510, guid: 06fd0e33262c45749a8979a0f5c5de0f, type: 3}
   m_PrefabInstance: {fileID: 451881107}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &451881109 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2828003200860766546, guid: 06fd0e33262c45749a8979a0f5c5de0f, type: 3}
-  m_PrefabInstance: {fileID: 451881107}
+--- !u!1001 &1199218547
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1736575784}
+    m_Modifications:
+    - target: {fileID: 8170108396243064913, guid: 2bd1393ab2e597648ab92f63bf8b3d03, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8170108396243064913, guid: 2bd1393ab2e597648ab92f63bf8b3d03, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.984312
+      objectReference: {fileID: 0}
+    - target: {fileID: 8170108396243064913, guid: 2bd1393ab2e597648ab92f63bf8b3d03, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.7006193
+      objectReference: {fileID: 0}
+    - target: {fileID: 8170108396243064913, guid: 2bd1393ab2e597648ab92f63bf8b3d03, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.20538288
+      objectReference: {fileID: 0}
+    - target: {fileID: 8170108396243064913, guid: 2bd1393ab2e597648ab92f63bf8b3d03, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8170108396243064913, guid: 2bd1393ab2e597648ab92f63bf8b3d03, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8170108396243064913, guid: 2bd1393ab2e597648ab92f63bf8b3d03, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8170108396243064913, guid: 2bd1393ab2e597648ab92f63bf8b3d03, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8170108396243064913, guid: 2bd1393ab2e597648ab92f63bf8b3d03, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8170108396243064913, guid: 2bd1393ab2e597648ab92f63bf8b3d03, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8170108396243064913, guid: 2bd1393ab2e597648ab92f63bf8b3d03, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8170108396243064919, guid: 2bd1393ab2e597648ab92f63bf8b3d03, type: 3}
+      propertyPath: m_Name
+      value: Sound
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2bd1393ab2e597648ab92f63bf8b3d03, type: 3}
+--- !u!4 &1199218548 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8170108396243064913, guid: 2bd1393ab2e597648ab92f63bf8b3d03, type: 3}
+  m_PrefabInstance: {fileID: 1199218547}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ff7e255ace758f43a7a4665df99960a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1235084218
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,7 +318,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1736575784}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1235084220
 MonoBehaviour:
@@ -466,6 +481,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 451881108}
+  - {fileID: 1199218548}
   - {fileID: 1235084219}
   m_Father: {fileID: 0}
   m_RootOrder: 1
