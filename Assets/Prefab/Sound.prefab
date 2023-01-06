@@ -95,6 +95,11 @@ MonoBehaviour:
     volume: 0.382
     loop: 0
     source: {fileID: 0}
+  - name: Squeeze
+    clip: {fileID: 8300000, guid: 7ff7c591f5a7fec489de17911e0158ff, type: 3}
+    volume: 0.411
+    loop: 0
+    source: {fileID: 0}
   musics:
   - name: Rising
     clip: {fileID: 8300000, guid: 1289c46251efcaa49bfbf0ecd2fc86da, type: 3}

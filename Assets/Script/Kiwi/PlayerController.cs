@@ -176,6 +176,7 @@ public class PlayerController : MonoBehaviour
     {
         health += val;
         if (val < 0) print("ouille");
+        animator.SetTrigger("Hurt");
         UIManager.Instance.UpdatePlayerHealth(maxHealth, health);
         if (health < 0) { 
             UIManager.Instance.EndFight(false);
