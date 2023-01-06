@@ -12,7 +12,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject mainMenu;
     [SerializeField] GameObject pauseMenu;
 
-    [SerializeField] GameObject optionMenu;
+    [SerializeField] GameObject endMenu;
 
     [SerializeField] Image healthMask;
     float originalHealthSize;
@@ -53,13 +53,13 @@ public class UIManager : MonoBehaviour
     {
         pauseMenu.SetActive(false);
     }
-    void ActivateOptionMenu()
+    public void ActivateEndMenu()
     {
-        optionMenu.SetActive(true);
+        endMenu.SetActive(true);
     }
-    void DeactivateOptionMenu()
+    void DeactivateEndMenu()
     {
-        optionMenu.SetActive(false);
+        endMenu.SetActive(false);
     }
     #endregion
 

@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] AttackCheck beak;
 
 
-    public Animator animator;
+    [HideInInspector]public Animator animator;
     BoxCollider2D boxCollider;
     Rigidbody2D rb2d;
     SpriteRenderer spriteRenderer;
@@ -124,13 +124,13 @@ public class PlayerController : MonoBehaviour
 
     void ArmAttack(bool state)
     {
-        arms.gameObject.SetActive(state);
+        arms.GetComponent<BoxCollider2D>().enabled = state;
         if(state)
             animator.SetTrigger("Hit");
     }
     void BeakAttack(bool state)
     {
-        beak.gameObject.SetActive(state);
+        beak.GetComponent<BoxCollider2D>().enabled = state;
         if (state)
             animator.SetTrigger("Beak");
     }
@@ -138,7 +138,7 @@ public class PlayerController : MonoBehaviour
     public void ChangeHealth(float val)
     {
         life += val;
-        if (life < 0) print("T nul.");
+        if (life < 0) UIManager.Instance.ActivateEndMenu();
     }
 }
 
