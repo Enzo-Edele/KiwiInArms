@@ -8,7 +8,9 @@ public class ProjectileScript : MonoBehaviour
     private float timer = 5.0f;
     private float timerScale;
     private Vector3 direction;
-    
+
+    private GameObject player;
+    private bool isFlipped;
 
     void Start()
     {
@@ -35,6 +37,30 @@ public class ProjectileScript : MonoBehaviour
     public void SetDirection(Vector2 dir)
     {
         this.direction = dir.normalized;
+    }
+
+    public void LookAtPlayer()
+    {
+        Vector3 flipped = transform.localScale;
+        flipped.z *= -1f;
+
+        if (transform.position.x > player.transform.position.x && isFlipped)
+        {
+            transform.localScale = flipped;
+            transform.Rotate(0f, 180f, 0f);
+            isFlipped = false;
+        }
+        else if (transform.position.x < player.transform.position.x && !isFlipped)
+        {
+            transform.localScale = flipped;
+            transform.Rotate(0f, 180f, 0f);
+            isFlipped = true;
+        }
+    }
+
+    public void SetPlayer(GameObject player)
+    {
+        this.player = player;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

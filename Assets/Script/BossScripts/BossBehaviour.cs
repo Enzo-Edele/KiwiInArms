@@ -25,6 +25,7 @@ public class BossBehaviour : MonoBehaviour
 
 
     private GameObject player = null;
+    private Vector2 targetToAim;
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -76,7 +77,7 @@ public class BossBehaviour : MonoBehaviour
     void UpdateUIHeatlh(float Health)
     {
         Debug.Log(Health);
-        //UIManager.Instance.UpdateHealth(maxHealth, Health);
+        UIManager.Instance.UpdateHealth(maxHealth, Health);
     }
 
     public void TakeDamage(float damage)
@@ -99,18 +100,30 @@ public class BossBehaviour : MonoBehaviour
         return this.invincible;
     }
 
+    public void AimProjectile()
+    {
+        targetToAim = player.transform.position;
+    }
     public void LaunchProjectile(int multiple)
     {
         GameObject proj = Instantiate(projectile, tspawnPoint.position,Quaternion.identity);
-        proj.GetComponent<ProjectileScript>().SetDirection(new Vector2 (Vector2.MoveTowards(rb.position, player.transform.position, 1f).x * -1,0));
+        proj.GetComponent<ProjectileScript>().SetDirection(new Vector2(Vector2.MoveTowards(rb.position, targetToAim, 0.02f).x * -1, Vector2.MoveTowards(rb.position, targetToAim, 0.02f).y));
 
+        proj.GetComponent<ProjectileScript>().SetPlayer(player);
+        proj.GetComponent<ProjectileScript>().LookAtPlayer();
         if (multiple != 0)
         {
             GameObject proj2 = Instantiate(projectile, tspawnPoint.position, Quaternion.identity);
-            proj2.GetComponent<ProjectileScript>().SetDirection(new Vector2(Vector2.MoveTowards(rb.position, player.transform.position, 1f).x * -1, 0.65f));
+            proj2.GetComponent<ProjectileScript>().SetDirection(new Vector2(Vector2.MoveTowards(rb.position, targetToAim, 1f).x * -1,
+                                                                            Vector2.MoveTowards(rb.position, targetToAim, 1f).y + 0.85f));
+            proj2.GetComponent<ProjectileScript>().SetPlayer(player);
+            proj2.GetComponent<ProjectileScript>().LookAtPlayer();
 
             GameObject proj3 = Instantiate(projectile, tspawnPoint.position, Quaternion.identity);
-            proj3.GetComponent<ProjectileScript>().SetDirection(new Vector2(Vector2.MoveTowards(rb.position, player.transform.position, 1f).x * -1, -0.65f));
+            proj3.GetComponent<ProjectileScript>().SetDirection(new Vector2(Vector2.MoveTowards(rb.position, targetToAim, 1f).x * -1,
+                                                                            Vector2.MoveTowards(rb.position, targetToAim, 1f).y - 0.85f));
+            proj3.GetComponent<ProjectileScript>().SetPlayer(player);
+            proj3.GetComponent<ProjectileScript>().LookAtPlayer();
         }
     }
     

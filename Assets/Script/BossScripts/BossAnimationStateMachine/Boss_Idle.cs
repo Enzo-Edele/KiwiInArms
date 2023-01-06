@@ -121,7 +121,7 @@ public class Boss_Idle : StateMachineBehaviour
     {
         Vector2 randomUp;
 
-        randomUp = new Vector2(Random.Range(-0.05f, 0.6f) * mult, 1);
+        randomUp = new Vector2(Random.Range(0.0f, 0.6f) * mult, 1);
 
 
         return randomUp;
