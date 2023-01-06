@@ -17,6 +17,8 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] GameObject credit;
 
+    PlayerController player;
+
     [SerializeField] Image bossHealthMask;
     float originalBossHealthSize;
 
@@ -97,14 +99,20 @@ public class UIManager : MonoBehaviour
         if (win)
         {
             EndTitle.text = "You Win";
+            player.animator.SetBool("Victory", true);
+            ActivateCredit();
         }
         else
         {
             EndTitle.text = "You Loose";
         }
         ActivateEndMenu();
-        ActivateCredit();
         DeactivateHealth();
+    }
+
+    public void SetPlayer(PlayerController newPlayer)
+    {
+        player = newPlayer;
     }
 
     public void ButtonPause(bool state)
