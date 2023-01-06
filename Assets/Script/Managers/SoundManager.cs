@@ -6,7 +6,6 @@ using UnityEngine.Audio;
 
 public class SoundManager : MonoBehaviour
 {
-    [SerializeField] AudioMixer audioMixer;
 
     public Sound[] soundsEffects;
     public Sound[] musics;
@@ -20,7 +19,6 @@ public class SoundManager : MonoBehaviour
         {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
-            s.source.outputAudioMixerGroup = s.mixerGroup;
 
             s.source.volume = s.volume;
 
@@ -30,7 +28,6 @@ public class SoundManager : MonoBehaviour
         {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
-            s.source.outputAudioMixerGroup = s.mixerGroup;
 
             s.source.volume = s.volume;
 
@@ -143,22 +140,4 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    public void SliderMasterVolume(float volume)
-    {
-        if (volume <= -25)
-            volume = -80;
-        audioMixer.SetFloat("Master", volume);
-    }
-    public void SliderMusicVolume(float volume)
-    {
-        if (volume <= -10)
-            volume = -80;
-        audioMixer.SetFloat("Music", volume);
-    }
-    public void SliderEffectVolume(float volume)
-    {
-        if (volume <= -10)
-            volume = -80;
-        audioMixer.SetFloat("SoundEffect", volume);
-    }
 }

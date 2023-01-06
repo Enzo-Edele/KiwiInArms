@@ -175,4 +175,19 @@ public class BossBehaviour : MonoBehaviour
         }
         
     }
+
+    public void PlaySoundEffect(string soundCue)
+    {
+        SoundManager.Instance.Play(soundCue);
+    }
+
+    public void PlayMusic (string music)
+    {
+        SoundManager.Instance.PlayMusic(music);
+    }
+
+    public void StopSoundEffect(string soundCue)
+    {
+        SoundManager.Instance.StopSound(soundCue);
+    }
 }
