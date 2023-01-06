@@ -16,14 +16,17 @@ public class Boss_Fly : StateMachineBehaviour
         if(rb == null)
             rb = animator.GetComponent<Rigidbody2D>();
 
-        foreach (var go in paths)
+        /*foreach (var go in paths)
         {
             //faire en sorte de prendre le point le plus loin pour y aller
             if(pathToGo == Vector3.zero || Vector3.Distance(rb.position, pathToGo) < Vector3.Distance( rb.position, go.transform.position))
             {
                 pathToGo = go.transform.position;
             }
-        }
+        }*/
+
+        pathToGo = paths[Random.Range(0, paths.Length)].transform.position;
+        
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

@@ -68,7 +68,7 @@ public class ProjectileScript : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             PlayerController player = collision.gameObject.GetComponent<PlayerController>();
-            player.ChangeHealth(20);
+            player.ChangeHealth(-20);
         }
     }
 }

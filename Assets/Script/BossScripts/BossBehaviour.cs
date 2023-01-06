@@ -23,9 +23,11 @@ public class BossBehaviour : MonoBehaviour
     [SerializeField] private BoxCollider2D hitBox;
     [SerializeField] private BoxCollider2D hurtBox;
 
+    public GameObject telegraph;
 
     private GameObject player = null;
     private Vector2 targetToAim;
+    private CameraShake cam;
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -35,7 +37,7 @@ public class BossBehaviour : MonoBehaviour
     }
     void Start()
     {
-        
+        cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraShake>();
     }
 
     // Update is called once per frame
@@ -189,5 +191,10 @@ public class BossBehaviour : MonoBehaviour
     public void StopSoundEffect(string soundCue)
     {
         SoundManager.Instance.StopSound(soundCue);
+    }
+
+    public void CamShake()
+    {
+        cam.Shake();
     }
 }

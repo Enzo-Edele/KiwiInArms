@@ -5176,9 +5176,23 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 0.33333334
+    functionName: PlaySoundEffect
+    data: IdleFlap
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.5
     functionName: PlaySoundEffect
     data: IdleSound
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.4666667
+    functionName: PlaySoundEffect
+    data: IdleFlap
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
