@@ -29,6 +29,9 @@ public class GameManager : MonoBehaviour
             switch (currentGameState)
             {
                 case GameStates.MainMenu:
+                    UIManager.Instance.DeactivateCredit();
+                    UIManager.Instance.DeactivateHealth();
+                    UIManager.Instance.DeactivateEndMenu();
                     break;
 
                 case GameStates.InGame:
@@ -46,5 +49,10 @@ public class GameManager : MonoBehaviour
 
             }
         }
+    }
+
+    public void ChangeGameState(GameStates state)
+    {
+        currentGameState = state;
     }
 }
