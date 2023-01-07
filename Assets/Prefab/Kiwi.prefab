@@ -198,7 +198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  jumpForce: 19
+  jumpForce: 17
   pushForce: 20
   isGrounded: 1
   maxHealth: 80

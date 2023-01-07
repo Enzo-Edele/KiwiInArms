@@ -16,6 +16,7 @@ public class AttackCheck : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         pos = transform.localPosition;
+        player = GetComponentInParent<PlayerController>();
     }
 
     void Update()
@@ -30,11 +31,9 @@ public class AttackCheck : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Enemy") collision.GetComponent<Dummy>().ChangeHealth(damage);
         if (collision.gameObject.layer == 15)
         {
             BossBehaviour boss = collision.gameObject.GetComponentInParent<BossBehaviour>();
-
             boss.TakeDamage(-damage);
         }
     }

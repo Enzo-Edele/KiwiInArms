@@ -22,12 +22,16 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb2d;
     SpriteRenderer spriteRenderer;
 
-    float timerArms;
-    const float timeArms = 0.4f;
-    const float cooldownArms = 0.4f;
-    float timerBeaks;
-    const float timeBeaks = 0.3f;
-    const float cooldownBeaks = 0.25f;
+    private float timerArms;
+    private const float timeArms = 0.4f;
+    private const float cooldownArms = 0.4f;
+    private float timerBeaks;
+    private const float timeBeaks = 0.3f;
+    private const float cooldownBeaks = 0.25f;
+
+    private bool isInvincible = false;
+    private float timerInvincibility;
+    private const float timeInvincibility = 0.5f;
 
     void Start()
     {
@@ -40,6 +44,7 @@ public class PlayerController : MonoBehaviour
 
         timerArms = -cooldownArms;
         timerBeaks = -cooldownBeaks;
+        timerInvincibility = timeInvincibility;
 
         UIManager.Instance.SetPlayer(this);
     }
@@ -87,6 +92,16 @@ public class PlayerController : MonoBehaviour
         }
         else if (timerBeaks != -cooldownBeaks){
             timerBeaks -= Time.deltaTime;
+        }
+
+        if (isInvincible)
+        {
+            timerInvincibility -= Time.deltaTime;
+            if(timerInvincibility <= 0)
+            {
+                timerInvincibility = timeInvincibility;
+                isInvincible = false;
+            }
         }
     }
 
@@ -178,12 +193,17 @@ public class PlayerController : MonoBehaviour
 
     public void ChangeHealth(float val)
     {
+        if (isInvincible)
+            return;
+
+
         health += val;
-        if (val < 0) print("ouille");
         animator.SetTrigger("Hurt");
         UIManager.Instance.UpdatePlayerHealth(maxHealth, health);
+        isInvincible = true;
         if (health <= 0) { 
             UIManager.Instance.EndFight(false);
+            PlaySoundEffect("Squeeze");
             Destroy(this.gameObject);
         }
     }

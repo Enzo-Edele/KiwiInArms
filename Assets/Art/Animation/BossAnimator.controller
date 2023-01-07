@@ -241,7 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dbb0dbff33a4e84db63e18f9010453e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 2
+  timer: 3
   timerIdle: 1
   speedIdling: 1.25
   meleeAttackRange: 3
@@ -257,7 +257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79dd09f34dbd7aa49951ac1cf7256c24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 75
+  speed: 40
 --- !u!1102 &-4798600518040209454
 AnimatorState:
   serializedVersion: 6
