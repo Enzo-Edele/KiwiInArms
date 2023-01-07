@@ -26,10 +26,10 @@ public class Dummy : MonoBehaviour
         spriteRenderer.color = Color.white;
     }
 
-    public void ChangeHealth(float val)
+    /*public void ChangeHealth(float val)
     {
         life += val;
         if (life < 0) print("Je me mourute.");
         UIManager.Instance.UpdateBossHealth(totalLife, life);
-    }
+    }*/
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class BossBehaviour : MonoBehaviour
 {
     private float health;
-    [SerializeField] private float maxHealth = 800;
+    [SerializeField] private float maxHealth = 900;
 
     private bool invincible = false;
     private Animator animator;
@@ -46,7 +46,7 @@ public class BossBehaviour : MonoBehaviour
 
         
 
-        if(health <= 350 && !phase2)
+        if(health <= 390 && !phase2)
         {
             animator.SetTrigger("Phase2");
             phase2 = true;

@@ -89,6 +89,7 @@ public class UIManager : MonoBehaviour
     public void UpdateBossHealth(float total, float actual)
     {
         bossHealthMask.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, originalBossHealthSize * (actual / total));
+        print("OISDOIFJSFD");
     }
 
     public void UpdatePlayerHealth(float total, float actual)

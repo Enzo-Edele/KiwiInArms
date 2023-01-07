@@ -51,8 +51,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        UIManager.Instance.UpdateBossHealth(maxHealth, health);
-        if ((Input.GetKeyDown(KeyCode.A) || Input.GetMouseButtonDown(1)) && 
+        UIManager.Instance.UpdatePlayerHealth(maxHealth, health);
+        if ((Input.GetKeyDown(KeyCode.Q) || Input.GetMouseButtonDown(1)) && 
             timerArms <= -cooldownArms && timerBeaks <= -cooldownBeaks) {
             ArmAttack(true);
             timerArms = timeArms;
@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour
             timerBeaks = timeBeaks;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded) {
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)) && isGrounded) {
             isJumping = true;
             animator.SetTrigger("Jump");
         }
