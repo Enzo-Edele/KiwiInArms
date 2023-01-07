@@ -19,6 +19,7 @@ public class BossBehaviour : MonoBehaviour
 
     [SerializeField] private ParticleSystem ScreamBurst;
     [SerializeField] private ParticleSystem EnragedScreamBurst;
+    [SerializeField] private ParticleSystem FeatherBurst;
 
     [SerializeField] private BoxCollider2D hitBox;
     [SerializeField] private BoxCollider2D hurtBox;
@@ -155,12 +156,20 @@ public class BossBehaviour : MonoBehaviour
         }
     }
 
-    public void ActivateBurst(int enraged)
+    public void ActivateBurst(int selected)
     {
-        if(enraged == 0)
-            ScreamBurst.Play();
-        else
-            EnragedScreamBurst.Play();
+        switch (selected)
+        {
+            case 0:
+                ScreamBurst.Play();
+                return;
+            case 1:
+                EnragedScreamBurst.Play();
+                return;
+            case 2:
+                FeatherBurst.Play();
+                return;
+        }
 
     }
 
