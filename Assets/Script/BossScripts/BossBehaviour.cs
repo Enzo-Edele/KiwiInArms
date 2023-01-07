@@ -22,6 +22,7 @@ public class BossBehaviour : MonoBehaviour
     [SerializeField] private ParticleSystem FeatherBurst;
 
     [SerializeField] private BoxCollider2D hitBox;
+    [SerializeField] private BoxCollider2D hitBox2;
     [SerializeField] private BoxCollider2D hurtBox;
 
     public GameObject telegraph;
@@ -175,7 +176,7 @@ public class BossBehaviour : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (hitBox.IsTouching(other))
+        if (hitBox.IsTouching(other) || hitBox2.IsTouching(other))
         {
             if (other.gameObject.layer == 10)
             {

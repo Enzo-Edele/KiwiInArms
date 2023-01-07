@@ -141,14 +141,14 @@ public class UIManager : MonoBehaviour
     public void ButtonChangeSceneString(string Scene)
     {
         SceneManager.LoadScene(Scene);
-        if(Scene == "Boot")
+        /*if(Scene == "Boot")
         {
             GameManager.Instance.ChangeGameState(GameManager.GameStates.MainMenu);
         }
         else if(Scene == "Main")
         {
             GameManager.Instance.ChangeGameState(GameManager.GameStates.InGame);
-        }
+        }*/
     }
     public void ButtonChangeSceneInt(int index)
     {
