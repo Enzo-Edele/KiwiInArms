@@ -75,6 +75,17 @@ public class SoundManager : MonoBehaviour
         }
         s.source.Stop();
     }
+
+    public void ModifyVolume(string name,float volume)
+    {
+        Sound s = Array.Find(soundsEffects, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.Log("sound name not find : " + name);
+            return;
+        }
+        s.source.volume = volume;
+    }
     public float PlayTime(string name)
     {
         Sound s = Array.Find(soundsEffects, sound => sound.name == name);
@@ -126,6 +137,17 @@ public class SoundManager : MonoBehaviour
             return;
         }
         s.source.Stop();
+    }
+
+    public void ModifyMusicVolume(string name, float volume)
+    {
+        Sound s = Array.Find(musics, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.Log("sound name not find : " + name);
+            return;
+        }
+        s.source.volume = volume;
     }
 
     public void StopAllSoud()

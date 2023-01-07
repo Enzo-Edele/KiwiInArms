@@ -67,12 +67,12 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: IdleSound
     clip: {fileID: 8300000, guid: 6f6e33ee8bd8eaf478e4846a371f33dd, type: 3}
-    volume: 0.087
+    volume: 0.14
     loop: 0
     source: {fileID: 0}
   - name: IdleFlap
     clip: {fileID: 8300000, guid: 515bb0df486308845b9fc22d0236d1fe, type: 3}
-    volume: 0.538
+    volume: 0.6
     loop: 0
     source: {fileID: 0}
   - name: Projectile
@@ -82,22 +82,22 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Punch
     clip: {fileID: 8300000, guid: 11149c1ac2662154eac830e72e6851b1, type: 3}
-    volume: 0.33
+    volume: 0.26
     loop: 0
     source: {fileID: 0}
   - name: Piercing
     clip: {fileID: 8300000, guid: 4a42881b788df644aa2e303d0860ccfe, type: 3}
-    volume: 0.365
+    volume: 0.31
     loop: 0
     source: {fileID: 0}
   - name: Hit
     clip: {fileID: 8300000, guid: 570bd79551b9c9d41824cb1272e7a9d4, type: 3}
-    volume: 0.214
+    volume: 0.21
     loop: 0
     source: {fileID: 0}
   - name: Squeeze
     clip: {fileID: 8300000, guid: 7ff7c591f5a7fec489de17911e0158ff, type: 3}
-    volume: 0.509
+    volume: 0.56
     loop: 0
     source: {fileID: 0}
   musics:
@@ -108,6 +108,6 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Glory
     clip: {fileID: 8300000, guid: 213352fd4ea22d24b9c2a00c2fc3ba17, type: 3}
-    volume: 0.238
+    volume: 0.23
     loop: 1
     source: {fileID: 0}

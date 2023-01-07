@@ -113,19 +113,19 @@ public class BossBehaviour : MonoBehaviour
     public void LaunchProjectile(int multiple)
     {
         GameObject proj = Instantiate(projectile, tspawnPoint.position,Quaternion.identity);
-        proj.GetComponent<ProjectileScript>().SetDirection(targetToAim - tspawnPoint.position);
+        proj.GetComponent<ProjectileScript>().SetDirection(targetToAim - rb.transform.position);
 
         proj.GetComponent<ProjectileScript>().SetPlayer(player);
         proj.GetComponent<ProjectileScript>().LookAtPlayer();
         if (multiple != 0)
         {
             GameObject proj2 = Instantiate(projectile, tspawnPoint.position, Quaternion.identity);
-            proj2.GetComponent<ProjectileScript>().SetDirection(targetToAim - tspawnPoint.position + new Vector3 (0,0.85f));
+            proj2.GetComponent<ProjectileScript>().SetDirection(targetToAim - rb.transform.position + new Vector3 (0,0.9f));
             proj2.GetComponent<ProjectileScript>().SetPlayer(player);
             proj2.GetComponent<ProjectileScript>().LookAtPlayer();
 
             GameObject proj3 = Instantiate(projectile, tspawnPoint.position, Quaternion.identity);
-            proj3.GetComponent<ProjectileScript>().SetDirection(targetToAim - tspawnPoint.position + new Vector3(0, -0.85f));
+            proj3.GetComponent<ProjectileScript>().SetDirection(targetToAim - rb.transform.position + new Vector3(0, -0.9f));
             proj3.GetComponent<ProjectileScript>().SetPlayer(player);
             proj3.GetComponent<ProjectileScript>().LookAtPlayer();
         }
@@ -209,6 +209,11 @@ public class BossBehaviour : MonoBehaviour
         SoundManager.Instance.StopMusic(music);
     }
 
+    public void ModifyVolume(float volume)
+    {
+        
+        SoundManager.Instance.ModifyMusicVolume("Glory",volume);
+    }
     public void CamShake()
     {
         cam.Shake();

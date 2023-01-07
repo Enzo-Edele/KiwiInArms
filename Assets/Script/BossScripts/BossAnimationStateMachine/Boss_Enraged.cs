@@ -22,5 +22,6 @@ public class Boss_Enraged : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.GetComponent<BossBehaviour>().SetIsInvincible(false);
+        animator.gameObject.transform.position = new Vector3(0, -4, 0);
     }
 }
