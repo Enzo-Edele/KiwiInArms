@@ -28,6 +28,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject playerHealthBar;
     [SerializeField] GameObject bossHealthBar;
 
+    bool won = false;
+
     GameObject previousMenu;
 
     #endregion
@@ -38,6 +40,11 @@ public class UIManager : MonoBehaviour
         originalBossHealthSize = bossHealthMask.rectTransform.rect.width;
         originalPlayerHealthSize = playerHealthMask.rectTransform.rect.width;
         ActivateMainMenu();
+    }
+
+    private void Start()
+    {
+        won = false;
     }
 
     void Update()
@@ -51,6 +58,7 @@ public class UIManager : MonoBehaviour
     #region Menus
     void ActivateMainMenu() {
         mainMenu.SetActive(true);
+        won = false;
     }
     void DeactivateMainMenu() {
         mainMenu.SetActive(false);
@@ -76,6 +84,14 @@ public class UIManager : MonoBehaviour
     {
         credit.SetActive(false);
     }
+
+    public void FlipFlopCredit()
+    {
+        if (credit.activeSelf == true)
+            DeactivateCredit();
+        else
+            ActivateCredit();
+    }
     public void ActivateHealth() {
         playerHealthBar.SetActive(true);
         bossHealthBar.SetActive(true);
@@ -89,7 +105,6 @@ public class UIManager : MonoBehaviour
     public void UpdateBossHealth(float total, float actual)
     {
         bossHealthMask.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, originalBossHealthSize * (actual / total));
-        print("OISDOIFJSFD");
     }
 
     public void UpdatePlayerHealth(float total, float actual)
@@ -102,6 +117,7 @@ public class UIManager : MonoBehaviour
             EndTitle.text = "You Win";
             player.animator.SetBool("Victory", true);
             ActivateCredit();
+            won = true;
         }
         else
         {
@@ -141,7 +157,7 @@ public class UIManager : MonoBehaviour
     public void ButtonChangeSceneString(string Scene)
     {
         SceneManager.LoadScene(Scene);
-        /*if(Scene == "Boot")
+       /* if(Scene == "Boot")
         {
             GameManager.Instance.ChangeGameState(GameManager.GameStates.MainMenu);
         }
@@ -162,5 +178,10 @@ public class UIManager : MonoBehaviour
     public void ButtonQuit()
     {
         Application.Quit();
+    }
+
+    public bool GetWin()
+    {
+        return won;
     }
 }

@@ -48,15 +48,10 @@ public class BossBehaviour : MonoBehaviour
 
         
 
-        if(health <= 390 && !phase2)
+        if(health <= 400 && !phase2)
         {
             animator.SetTrigger("Phase2");
             phase2 = true;
-        }
-
-        if(Input.GetKeyDown(KeyCode.R))
-        {
-            TakeDamage(20);
         }
         UpdateUIHeatlh(health);
 

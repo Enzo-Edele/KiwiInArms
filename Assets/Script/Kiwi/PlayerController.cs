@@ -33,6 +33,12 @@ public class PlayerController : MonoBehaviour
     private float timerInvincibility;
     private const float timeInvincibility = 0.5f;
 
+    private float coyoteTime = 0.15f;
+    private float coyoteTimeDecrease;
+
+    private float jumpBufferTime = 0.2f;
+    private float jumpBufferTimeDecrease;
+
     void Start()
     {
         health = maxHealth;
@@ -53,18 +59,31 @@ public class PlayerController : MonoBehaviour
     {
         UIManager.Instance.UpdatePlayerHealth(maxHealth, health);
         if ((Input.GetKeyDown(KeyCode.Q) || Input.GetMouseButtonDown(1)) && 
-            timerArms <= -cooldownArms && timerBeaks <= -cooldownBeaks) {
+            timerArms <= -cooldownArms && timerBeaks <= -cooldownBeaks && UIManager.Instance.GetWin() == false) {
             ArmAttack(true);
             timerArms = timeArms;
         }
         if ((Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(0))&& 
-            timerBeaks <= -cooldownBeaks && timerArms <= -cooldownArms) {
+            timerBeaks <= -cooldownBeaks && timerArms <= -cooldownArms && UIManager.Instance.GetWin() == false) {
             BeakAttack(true);
             timerBeaks = timeBeaks;
         }
 
-        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)) && isGrounded) {
+        if (isGrounded)
+            coyoteTimeDecrease = coyoteTime;
+        else
+            coyoteTimeDecrease -= Time.deltaTime;
+
+        if (Input.GetButtonDown("Jump"))
+            jumpBufferTimeDecrease = jumpBufferTime;
+        else
+            jumpBufferTimeDecrease -= Time.deltaTime;
+        
+
+        if (jumpBufferTimeDecrease > 0f && coyoteTimeDecrease > 0f) {
+            coyoteTimeDecrease = -0.5f;
             isJumping = true;
+            jumpBufferTimeDecrease = 0f;
             animator.SetTrigger("Jump");
         }
 
@@ -113,13 +132,14 @@ public class PlayerController : MonoBehaviour
 
         animator.SetBool("Walking", true);
 
-        if(Input.GetAxis("Horizontal") < 0) FlipChild(false); 
-        else if (Input.GetAxis("Horizontal") > 0) FlipChild(true); 
+        if(Input.GetAxis("Horizontal") < -0.01f) FlipChild(false); 
+        else if (Input.GetAxis("Horizontal") > 0.01f) FlipChild(true); 
         else animator.SetBool("Walking", false);
 
         transform.position = velocity;
         if (isJumping)
         {
+            rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
             rb2d.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
             isJumping = false;
         }
@@ -131,11 +151,13 @@ public class PlayerController : MonoBehaviour
             spriteRenderer.flipX = !orientation;
             beak.pos = new Vector2(Mathf.Abs(beak.pos.x), beak.pos.y);
             arms.pos = new Vector2(Mathf.Abs(arms.pos.x), arms.pos.y);
+            /*transform.Rotate(0f, 180f, 0f);*/
         }
         else {
             spriteRenderer.flipX = !orientation;
             beak.pos = new Vector2(-Mathf.Abs(beak.pos.x), beak.pos.y);
             arms.pos = new Vector2(-Mathf.Abs(arms.pos.x), arms.pos.y);
+            /*transform.Rotate(0f, 180f, 0f);*/
         }
     }
 
